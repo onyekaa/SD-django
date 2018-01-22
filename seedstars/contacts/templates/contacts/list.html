@@ -1,0 +1,20 @@
+{% extends 'contacts/base.html' %}
+
+{% block content %}
+<div class="col-md-4 mt-4 p-3 border">
+<h4>Contacts List</h4>
+<hr>
+{% if not contacts %}
+  <dl>
+  {% for contact in contacts %}
+    <dt>{{ contact.last_name }}, {{ contact.other_names }}</dt>
+    <dd class="text-muted border-bottom"> {{ contact.email }}
+      <small><a href="{% url 'edit_contact' contact.id %}">edit</a></small></dd>
+  {% endfor %}
+  </dl>
+{% else %}
+  <h6>No contacts added yet.</h6>
+  <p><a href="{% url 'add_contacts' %}">Add one now</a>.</p>
+{% endif %}
+</div>
+{% endblock %}

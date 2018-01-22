@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Contacts App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container pt-4">
+    <div class="row justify-content-center d-flex flex-column align-items-center">
+    <h2>Contacts App</h2>
+      <ul class="nav">
+        <li class="nav-item">
+         <a class="nav-link" href="{% url 'list_contacts' %}">View Contacts</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'add_contacts' %}">Add New Contact</a>
+       </li>
+     </ul>
+      </div>
+    </div>
+
+    <div class="row justify-content-center d-flex ">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+</body>
+</html>

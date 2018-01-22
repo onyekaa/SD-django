@@ -1,0 +1,33 @@
+
+{% extends 'contacts/base.html' %}
+
+{% block content %}
+<div class="col-md-4 mt-4 p-3 border">
+  <h4>{% if contact %}Edit
+    <small class="text-muted">{{ contact.last_name}}, {{ contact.other_names}}</small>
+    {% else %} Add a New Contact{% endif %}
+  </h4>
+  <hr>
+  {% if form.errors %}
+  <div class="alert alert-danger">Please fix the errors below.</div>
+  {% endif %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}"><strong>{{ field.label }}</strong></label>
+      <input type="" class="form-control"
+      id="{{ field.id_for_label }}" name="{{ field.name }}"
+      value="{% if field.value %}{{ field.value }}{% endif %}">
+      {% if field.errors %}
+      <small class="form-text text-danger">{{ field.errors.as_text }}</small>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="text-center">
+    <button class="btn btn-primary text-right">Save Contact</button>
+  </div>
+  </form>
+</div>
+{% endblock %}
