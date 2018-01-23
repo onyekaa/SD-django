@@ -4,7 +4,7 @@
 <div class="col-md-4 mt-4 p-3 border">
 <h4>Contacts List</h4>
 <hr>
-{% if not contacts %}
+{% if contacts %}
   <dl>
   {% for contact in contacts %}
     <dt>{{ contact.last_name }}, {{ contact.other_names }}</dt>
